@@ -1,0 +1,35 @@
+@use './sass/reset';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+html {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body.light {
+    --clr-element: hsl(0, 0%, 100%);
+    --clr-bg: hsl(0, 0%, 98%);
+    --clr-txt: hsl(200, 15%, 8%);
+    --clr-input: hsl(0, 0%, 52%);
+}
+
+body.dark {
+    --clr-element: hsl(209, 23%, 22%);
+    --clr-bg: hsl(207, 26%, 17%);
+    --clr-txt: hsl(0, 0%, 100%);
+    --clr-input: hsl(0, 0%, 88%);
+}
+
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-txt);
+}
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
