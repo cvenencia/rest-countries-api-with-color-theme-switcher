@@ -1,4 +1,10 @@
 @mixin mq($breakpoint) {
+    @if $breakpoint == laptop {
+        @media only screen and (max-width: 1280px) {
+            @content;
+        }
+    }
+
     @if $breakpoint == tablet {
         @media only screen and (max-width: 980px) {
             @content;
@@ -15,5 +21,11 @@
         @media only screen and (max-width: 480px) {
             @content;
         }
+    }
+}
+
+@mixin theme($theme, $selector) {
+    body:global(.#{$theme}) #{$selector} {
+        @content;
     }
 }

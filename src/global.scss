@@ -1,4 +1,5 @@
 @use './sass/reset';
+@use './sass/mixins' as mixins;
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 html {
@@ -20,8 +21,27 @@ body.dark {
 }
 
 body {
+    --padding-inline: 5em;
     background-color: var(--clr-bg);
     color: var(--clr-txt);
+    padding-bottom: 2em;
+
+    @include mixins.mq(tablet-s) {
+        --padding-inline: 3em;
+    }
+
+    @include mixins.mq(mobile) {
+        --padding-inline: 2em;
+    }
+}
+
+ul {
+    padding: 0;
+}
+
+main,
+nav {
+    padding-inline: var(--padding-inline);
 }
 
 .sr-only {
@@ -32,4 +52,27 @@ body {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+}
+
+.spinner {
+    width: fit-content;
+    margin-block: 2em;
+    margin-inline: auto;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.hover-scale {
+    transition: transform 100ms ease-in;
+
+    &:hover,
+    &:focus-visible {
+        transform: scale(1.08);
+    }
 }
