@@ -3,7 +3,7 @@ import st from './ListItem.module.scss';
 
 type ListItemProps = {
     title: string;
-    className: string;
+    className?: string;
     children: ReactNode;
 };
 

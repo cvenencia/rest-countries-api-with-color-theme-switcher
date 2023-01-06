@@ -1,0 +1,36 @@
+.container {
+    --img-height: 9.875rem;
+    background-color: var(--clr-element);
+    border-radius: 0.25em;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+
+    .imageWrapper {
+        img {
+            width: 100%;
+            height: var(--img-height);
+            object-fit: cover;
+        }
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .infoContainer {
+        padding: 1em;
+        padding-bottom: 2em;
+
+        h2 {
+            margin-bottom: 1.125em;
+        }
+
+        ul li {
+            font-size: 0.875rem;
+            line-height: 1.75;
+        }
+    }
+}

@@ -1,0 +1,103 @@
+@use '../../sass/mixins' as mixins;
+
+.filtersContainer {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    margin-block: 3em;
+    font-size: 0.875rem;
+
+    .searchContainer {
+        display: flex;
+        gap: 1em;
+        flex-basis: 30rem;
+        padding-left: 2em;
+        border-radius: 0.25em;
+        background-color: var(--clr-element);
+
+        img {
+            width: 1.25em;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            flex-basis: 100%;
+            padding-block: 1em;
+            color: var(--clr-input);
+        }
+    }
+
+    .regionDropdown {
+        flex-basis: 12.5rem;
+
+        .control,
+        .menu,
+        .option {
+            border: none;
+            background-color: var(--clr-element);
+            color: var(--clr-txt);
+            border-radius: 0.25em;
+        }
+
+        .control {
+            padding: 1.25em 1.5em;
+            transition: none;
+        }
+
+        .menu {
+            top: 120%;
+            max-height: unset;
+            padding: 1em 2em;
+        }
+
+        .option {
+            padding-block: 0.25em;
+        }
+
+        .arrow {
+            border: none;
+            background-image: url('/icon/arrow-light.svg');
+            width: 0.75em;
+            height: 0.75em;
+            background-size: cover;
+            transition: rotate 100ms ease-in;
+            top: 50%;
+            right: 1em;
+            translate: 0 -50%;
+
+            @include mixins.theme(dark, '&') {
+                background-image: url('/icon/arrow-dark.svg');
+            }
+        }
+
+        &:global(.is-open) .arrow {
+            rotate: 180deg;
+        }
+    }
+}
+
+.countriesContainer {
+    display: grid;
+    gap: 4.675em;
+    grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+}
+
+.pageSelectorContainer {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+
+    > * {
+        color: inherit;
+        background-color: var(--clr-element);
+        padding: 0.5em 0.75em;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+        border-radius: 0.25em;
+    }
+}
