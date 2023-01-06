@@ -4,7 +4,6 @@ import st from './Home.module.scss';
 import { CountryItem } from './CountryItem';
 import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
-import { useState } from 'react';
 import { useTheme } from '../../contexts/ThemeContext';
 
 export function Home() {
@@ -14,11 +13,10 @@ export function Home() {
         currentPage,
         updatePage,
         lastPage,
+        filter,
         updateFilter,
     } = useCountries();
     const { theme } = useTheme();
-
-    const [dropdownValue, setDropdownValue] = useState<string | undefined>();
 
     const regionOptions = [
         { value: 'None', label: 'None', className: st.option },
@@ -30,11 +28,7 @@ export function Home() {
     ];
 
     function handleChangeRegionFilter({ value }: Option) {
-        if (value === 'None') {
-            setDropdownValue(undefined);
-            return updateFilter('region', undefined);
-        }
-        setDropdownValue(value);
+        if (value === 'None') return updateFilter('region', undefined);
         return updateFilter('region', value);
     }
 
@@ -67,6 +61,7 @@ export function Home() {
                             />
                             <input
                                 id='search-input'
+                                value={filter.name}
                                 type='search'
                                 placeholder='Search for a country...'
                                 onChange={handleChangeCountryFilter}
@@ -80,7 +75,7 @@ export function Home() {
                             controlClassName={`${st.control}`}
                             placeholder='Filter by Region'
                             onChange={handleChangeRegionFilter}
-                            value={dropdownValue}
+                            value={filter.region}
                             options={regionOptions}
                         />
                     </div>

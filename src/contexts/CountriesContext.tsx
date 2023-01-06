@@ -20,6 +20,7 @@ type CountriesContext = {
     countries: Country[];
     error: boolean;
     getCountryByCode: (cca3: string) => Country | undefined;
+    filter: Filter;
     updateFilter: UpdateFilter;
     currentPage: number;
     updatePage: (page: number) => void;
@@ -120,6 +121,7 @@ export function CountriesProvider({ children }: CountriesProviderProps) {
                 loading,
                 error,
                 getCountryByCode,
+                filter,
                 updateFilter,
                 currentPage,
                 updatePage,
