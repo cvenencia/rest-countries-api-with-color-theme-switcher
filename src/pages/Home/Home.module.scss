@@ -7,16 +7,29 @@
     margin-block: 3em;
     font-size: 0.875rem;
 
+    @include mixins.mq(tablet-s) {
+        flex-direction: column;
+    }
+
     .searchContainer {
         display: flex;
         gap: 1em;
-        flex-basis: 30rem;
+        max-width: 30rem;
+        flex-basis: 100%;
         padding-left: 2em;
         border-radius: 0.25em;
         background-color: var(--clr-element);
 
-        img {
-            width: 1.25em;
+        @include mixins.mq(tablet-s) {
+            max-width: none;
+        }
+
+        label {
+            height: fit-content;
+            margin-block: auto;
+            img {
+                width: 1.25em;
+            }
         }
 
         input {
@@ -31,6 +44,12 @@
     .regionDropdown {
         flex-basis: 12.5rem;
 
+        @include mixins.mq(tablet-s) {
+            width: fit-content;
+            min-width: 10rem;
+            flex-basis: auto;
+        }
+
         .control,
         .menu,
         .option {
@@ -41,6 +60,8 @@
         }
 
         .control {
+            display: flex;
+            gap: 1em;
             padding: 1.25em 1.5em;
             transition: none;
         }
@@ -80,7 +101,11 @@
 .countriesContainer {
     display: grid;
     gap: 4.675em;
-    grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(16.875rem, 1fr));
+
+    @include mixins.mq(tablet) {
+        padding-inline: 2em;
+    }
 }
 
 .pageSelectorContainer {

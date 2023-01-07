@@ -9,6 +9,10 @@
     h1 a {
         text-decoration: none;
         color: inherit;
+
+        @include mixins.mq(mobile) {
+            font-size: 1rem;
+        }
     }
 
     button {
@@ -21,6 +25,10 @@
         background: none;
         padding: 0;
         cursor: pointer;
+
+        @include mixins.mq(mobile) {
+            font-size: 0.875rem;
+        }
 
         &::before {
             content: '';

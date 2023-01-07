@@ -64,6 +64,7 @@
 
         @include mixins.mq(tablet) {
             padding: 0;
+            align-self: flex-start;
         }
 
         h2 {

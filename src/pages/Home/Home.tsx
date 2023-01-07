@@ -55,10 +55,12 @@ export function Home() {
                 <>
                     <div className={st.filtersContainer}>
                         <div className={`${st.searchContainer} box-shadow`}>
-                            <img
-                                src={`${window.location.origin}/icon/magnifying-glass-${theme}.svg`}
-                                alt=''
-                            />
+                            <label htmlFor='search-input'>
+                                <img
+                                    src={`${window.location.origin}/icon/magnifying-glass-${theme}.svg`}
+                                    alt=''
+                                />
+                            </label>
                             <input
                                 id='search-input'
                                 value={filter.name}
