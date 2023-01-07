@@ -19,9 +19,10 @@ export function Home() {
     const { theme } = useTheme();
 
     const regionOptions = [
-        { value: 'None', label: 'None', className: st.option },
+        { value: 'None', label: 'All regions', className: st.option },
         { value: 'Africa', label: 'Africa', className: st.option },
         { value: 'Americas', label: 'Americas', className: st.option },
+        { value: 'Antarctic', label: 'Antarctic', className: st.option },
         { value: 'Asia', label: 'Asia', className: st.option },
         { value: 'Europe', label: 'Europe', className: st.option },
         { value: 'Oceania', label: 'Oceania', className: st.option },
